@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rebeca Payá Santamaría">
+<meta name="dcterms.date" content="2024-11-13">
+
+<title>Taller evaluado de repaso para el Primer Parcial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="taller_practica_parcial_files/libs/clipboard/clipboard.min.js"></script>
+<script src="taller_practica_parcial_files/libs/quarto-html/quarto.js"></script>
+<script src="taller_practica_parcial_files/libs/quarto-html/popper.min.js"></script>
+<script src="taller_practica_parcial_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="taller_practica_parcial_files/libs/quarto-html/anchor.min.js"></script>
+<link href="taller_practica_parcial_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="taller_practica_parcial_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="taller_practica_parcial_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="taller_practica_parcial_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="taller_practica_parcial_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#objectius" id="toc-objectius" class="nav-link" data-scroll-target="#objectius">Objectius</a></li>
+  <li><a href="#generació-de-les-dades" id="toc-generació-de-les-dades" class="nav-link" data-scroll-target="#generació-de-les-dades">Generació de les dades</a></li>
+  <li><a href="#anàlisis-descriptiu-de-la-base-de-dades" id="toc-anàlisis-descriptiu-de-la-base-de-dades" class="nav-link" data-scroll-target="#anàlisis-descriptiu-de-la-base-de-dades">Anàlisis descriptiu de la base de dades</a></li>
+  <li><a href="#tractament-de-les-dades" id="toc-tractament-de-les-dades" class="nav-link" data-scroll-target="#tractament-de-les-dades">Tractament de les dades</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#bibliografia" id="toc-bibliografia" class="nav-link" data-scroll-target="#bibliografia">Bibliografia</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller evaluado de repaso para el Primer Parcial</h1>
+<p class="subtitle lead">20582- Análisis de Datos para el GMAT</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rebeca Payá Santamaría </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>En aquesta pràctica treballarem amb dades simulades sobre els resultats del CAE des del 1970 fins el 2020 on compararem el resultat global amb les diferents característiques dels examinats com ara quan van realitzar l’examen, amb quina edat, el seu gènere, procedència i nivell d’estudis. Hem realitzat diferents gràfics per poder apreciar els diferents estudis d’interés visualment, i també hem treballat amb diverses proves estadístiques per poder fer diferents comparacions amb una profunditat matemàtica més elevada.</p>
+</section>
+<section id="objectius" class="level2">
+<h2 class="anchored" data-anchor-id="objectius">Objectius</h2>
+<p>L’objectiu d’aquesta pràctica serà comparar els resultats del CAE (C1 Certificated de Cambridge) des de l’any 1970 fins el 2020 (aquest últim no inclòs) per rang d’edat, generació per dècades, nivell d’estudis, gènere i continent.</p>
+</section>
+<section id="generació-de-les-dades" class="level2">
+<h2 class="anchored" data-anchor-id="generació-de-les-dades">Generació de les dades</h2>
+<p>Les variables que necessitarem per realitzar el nostre estudi seran a quin rang d’edat hi pertany (&lt;18, 18-30, 30-60, &gt;60), en quina dècada va realitzar l’examen i el seu nivell d’estudis, com a variables ordinals; el seu gènere i el continent on tenen la seua nacionalitat, com a variables nominals; i les respectives puntuacions del <em>Speaking</em>, <em>Listening</em>, <em>Use of English</em>, <em>Reading</em>, <em>Writing</em> i la puntuació global, com a variables quantitatives.</p>
+<p>Per aquí deixarem una petita mostra de com es el <em>dataframe</em> amb el qual estarem treballant:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="djvxinyzgh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#djvxinyzgh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#djvxinyzgh thead, #djvxinyzgh tbody, #djvxinyzgh tfoot, #djvxinyzgh tr, #djvxinyzgh td, #djvxinyzgh th {
+  border-style: none;
+}
+
+#djvxinyzgh p {
+  margin: 0;
+  padding: 0;
+}
+
+#djvxinyzgh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#djvxinyzgh .gt_title {
+  color: #333333;
+  font-size: 18px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#djvxinyzgh .gt_subtitle {
+  color: #333333;
+  font-size: 14px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#djvxinyzgh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#djvxinyzgh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#djvxinyzgh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#djvxinyzgh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#djvxinyzgh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#djvxinyzgh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#djvxinyzgh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#djvxinyzgh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#djvxinyzgh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#djvxinyzgh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#djvxinyzgh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#djvxinyzgh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djvxinyzgh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#djvxinyzgh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#djvxinyzgh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#djvxinyzgh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djvxinyzgh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#djvxinyzgh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djvxinyzgh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#djvxinyzgh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djvxinyzgh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#djvxinyzgh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djvxinyzgh .gt_left {
+  text-align: left;
+}
+
+#djvxinyzgh .gt_center {
+  text-align: center;
+}
+
+#djvxinyzgh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#djvxinyzgh .gt_font_normal {
+  font-weight: normal;
+}
+
+#djvxinyzgh .gt_font_bold {
+  font-weight: bold;
+}
+
+#djvxinyzgh .gt_font_italic {
+  font-style: italic;
+}
+
+#djvxinyzgh .gt_super {
+  font-size: 65%;
+}
+
+#djvxinyzgh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#djvxinyzgh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#djvxinyzgh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#djvxinyzgh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#djvxinyzgh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#djvxinyzgh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#djvxinyzgh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#djvxinyzgh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#djvxinyzgh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="11" class="gt_heading gt_title gt_font_normal gt_bottom_border">Petita mostra del nostre dataframe</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="speaking" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">speaking</th>
+<th id="listening" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">listening</th>
+<th id="use_eng" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">use_eng</th>
+<th id="reading" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">reading</th>
+<th id="writing" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">writing</th>
+<th id="global" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">global</th>
+<th id="rango_edad" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">rango_edad</th>
+<th id="decada_examen" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">decada_examen</th>
+<th id="nivel_estudios" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">nivel_estudios</th>
+<th id="genero" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">genero</th>
+<th id="continente" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">continente</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="speaking">181</td>
+<td class="gt_row gt_right" headers="listening">187</td>
+<td class="gt_row gt_right" headers="use_eng">173</td>
+<td class="gt_row gt_right" headers="reading">177</td>
+<td class="gt_row gt_right" headers="writing">181</td>
+<td class="gt_row gt_right" headers="global">179.6731</td>
+<td class="gt_row gt_center" headers="rango_edad">18-30</td>
+<td class="gt_row gt_center" headers="decada_examen">1990</td>
+<td class="gt_row gt_center" headers="nivel_estudios">superiores</td>
+<td class="gt_row gt_left" headers="genero">masculino</td>
+<td class="gt_row gt_left" headers="continente">Àfrica</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="speaking">185</td>
+<td class="gt_row gt_right" headers="listening">188</td>
+<td class="gt_row gt_right" headers="use_eng">178</td>
+<td class="gt_row gt_right" headers="reading">181</td>
+<td class="gt_row gt_right" headers="writing">180</td>
+<td class="gt_row gt_right" headers="global">182.1815</td>
+<td class="gt_row gt_center" headers="rango_edad">&gt;60</td>
+<td class="gt_row gt_center" headers="decada_examen">2000</td>
+<td class="gt_row gt_center" headers="nivel_estudios">superiores</td>
+<td class="gt_row gt_left" headers="genero">femenino</td>
+<td class="gt_row gt_left" headers="continente">Oceania</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="speaking">180</td>
+<td class="gt_row gt_right" headers="listening">188</td>
+<td class="gt_row gt_right" headers="use_eng">175</td>
+<td class="gt_row gt_right" headers="reading">178</td>
+<td class="gt_row gt_right" headers="writing">177</td>
+<td class="gt_row gt_right" headers="global">179.4305</td>
+<td class="gt_row gt_center" headers="rango_edad">30-60</td>
+<td class="gt_row gt_center" headers="decada_examen">1970</td>
+<td class="gt_row gt_center" headers="nivel_estudios">post-universitarios</td>
+<td class="gt_row gt_left" headers="genero">femenino</td>
+<td class="gt_row gt_left" headers="continente">Asia</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="speaking">198</td>
+<td class="gt_row gt_right" headers="listening">205</td>
+<td class="gt_row gt_right" headers="use_eng">192</td>
+<td class="gt_row gt_right" headers="reading">192</td>
+<td class="gt_row gt_right" headers="writing">198</td>
+<td class="gt_row gt_right" headers="global">196.9316</td>
+<td class="gt_row gt_center" headers="rango_edad">30-60</td>
+<td class="gt_row gt_center" headers="decada_examen">1990</td>
+<td class="gt_row gt_center" headers="nivel_estudios">superiores</td>
+<td class="gt_row gt_left" headers="genero">masculino</td>
+<td class="gt_row gt_left" headers="continente">Europa</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="speaking">185</td>
+<td class="gt_row gt_right" headers="listening">189</td>
+<td class="gt_row gt_right" headers="use_eng">173</td>
+<td class="gt_row gt_right" headers="reading">183</td>
+<td class="gt_row gt_right" headers="writing">186</td>
+<td class="gt_row gt_right" headers="global">183.1493</td>
+<td class="gt_row gt_center" headers="rango_edad">&gt;60</td>
+<td class="gt_row gt_center" headers="decada_examen">2010</td>
+<td class="gt_row gt_center" headers="nivel_estudios">obligatorios</td>
+<td class="gt_row gt_left" headers="genero">masculino</td>
+<td class="gt_row gt_left" headers="continente">Àfrica</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="speaking">198</td>
+<td class="gt_row gt_right" headers="listening">187</td>
+<td class="gt_row gt_right" headers="use_eng">182</td>
+<td class="gt_row gt_right" headers="reading">192</td>
+<td class="gt_row gt_right" headers="writing">188</td>
+<td class="gt_row gt_right" headers="global">189.2333</td>
+<td class="gt_row gt_center" headers="rango_edad">18-30</td>
+<td class="gt_row gt_center" headers="decada_examen">2000</td>
+<td class="gt_row gt_center" headers="nivel_estudios">post-universitarios</td>
+<td class="gt_row gt_left" headers="genero">femenino</td>
+<td class="gt_row gt_left" headers="continente">América</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="anàlisis-descriptiu-de-la-base-de-dades" class="level2">
+<h2 class="anchored" data-anchor-id="anàlisis-descriptiu-de-la-base-de-dades">Anàlisis descriptiu de la base de dades</h2>
+<p>En aquesta secció intentarem fer-nos una idea de com són les nostres dades i com es relacionen segons els nostres interesos emprant gràfics per tal de visualitzar-los d’una forma més clara.</p>
+<p>Primerament volem veure com es distribueixen les puntuacions globals de l’examen per fer-nos una idea del nombre d’aprovats.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="taller_practica_parcial_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>D’ací ja podem veure que usualment la majoria de gent que es presenta acostuma a aprovar l’examen.</p>
+<p>També voliem comparar les calificacions globals per gènere, açò es pot visualitzar de forma ràpida amb el següent diagrama de caixes:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="taller_practica_parcial_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Per tant, podem deduïr que, tot i que les mitjanes siguen molt semblant, hi ha una mica més de dispersió en els homes que en les dones.</p>
+<p>A continuació, volem mirar és com es distribueixen les edats amb les dècades de la realització de l’examen, açò ho podrem visualitzar fàcilment amb el següent gràfic:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="taller_practica_parcial_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Un altre tema d’interés és veure com de correlacionades estan els diferents tipus de proves de nivell entre elles, per mirar açò el més adhient serà construïr un mapa de calor.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="taller_practica_parcial_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Llavors, es pot veure que usualment totes elles estan correlacionades, cosa que té sentit, ja que mentre més saps d’un idioma millor sols fer totes les diferents proves.</p>
+<p>Seguint estudiant les nostres variables quantitatives, volem calcular quina és la seua variança generalitzada i la seua variança total.</p>
+<p>La variança total és la suma de les variances de cada variable individualment i representa la dispersió total de les dades. Aquesta es calcula com la traça de la matriu de covariança, que és la suma dels seus valors propis. Ací baix apareixerà la variança total en el nostre cas:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 162</code></pre>
+</div>
+</div>
+<p>D’altra banda, la variança generalitzada és una extensió multivariada que té en compte la correlació entre les variables i que medeix la dispersió a l’espai multidimensional d’aquestes. Generalment es calcula com l’arrel del determinant de la matriu de covariança. Ací baix apareixerà el seu valor en el nostre cas:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 90.22195</code></pre>
+</div>
+</div>
+</section>
+<section id="tractament-de-les-dades" class="level2">
+<h2 class="anchored" data-anchor-id="tractament-de-les-dades">Tractament de les dades</h2>
+<p>En aqusta secció realitzarem totes les aplicacions de proves estadístiques que trobem interessant aplicar a les nostres dades.</p>
+<p>Per començar voldrem modelitzar una de les nostres variables no quantitatives amb una distribució multinomial. Al nostre cas treballarem amb la variable que representa el nivell d’estudis de la persona, ja que ens pareix interessant saber si tindre una major formació acadèmica fa que tingues més interés en presentar-te en aquest examen.</p>
+<p>La població d’aquesta variable és <span class="math inline">\(\Omega = \{A_1, A_2, A_3, A_4\}\)</span> on <span class="math inline">\(A_1 = \text{estudis obligatoris}\)</span>, <span class="math inline">\(A_2 = \text{estudis superiors no universitaris}\)</span>, <span class="math inline">\(A_3 = \text{estudis universitaris}\)</span>, <span class="math inline">\(A_4 = \text{estudis post-universitaris}\)</span>. Al nostre cas, en un principi, no coneixem les seues probabilitats (en aquest exemple concret sí que sabem que són equiprobables per com hem generat les dades, però suposarem que no coneixem aquesta informació), aleshores hem d’estimar les seues probabilitats. Considerarem que les seues respectives probabilitats seran casos d’aquest event entre casos possibles, és a dir, <span class="math inline">\(p_i = p\{X=A_i\} = \frac{f_i}{n}\)</span> on <span class="math inline">\(f_i\)</span> és el nombre de vegades que apareix <span class="math inline">\(A_i\)</span> a les nostres dades i <span class="math inline">\(n\)</span> el nombre total de dades que tenim.</p>
+<p>Al nostre <em>dataframe</em> hi ha <span class="math inline">\(40\)</span> casos de <span class="math inline">\(A_1\)</span>, <span class="math inline">\(40\)</span> de <span class="math inline">\(A_2\)</span>, <span class="math inline">\(33\)</span> de <span class="math inline">\(A_3\)</span> i <span class="math inline">\(37\)</span> de <span class="math inline">\(A_4\)</span>, un total de <span class="math inline">\(150\)</span> casos, llavors les probabilitats de cada un dells seran <span class="math inline">\(0.2\bar{6}, 0.2\bar{6}, 0.22, 0.24\bar{6}\)</span>.</p>
+<p>Per tant, la distribució multinomial és la distribució de <span class="math inline">\(\textbf{f} = (f_1, f_2, f_3, f_4)\)</span> amb funció de densitat discreta <span class="math display">\[
+f(f_1, f_2, f_3, f_4) = \frac{n!}{f_1!f_2!f_3!f_4!}p_1^{f_1}p_2^{f_2}p_3^{f_3}p_4^{f_4} = \frac{n!}{f_1!f_2!f_3!f_4!}0.2\bar{6}^{f_1}0.2\bar{6}^{f_2}0.22^{f_3}0.24\bar{6}^{f_4}
+\]</span> Continuant amb el nostre estudi, a continuació voldrem ajustar un model de regresió multivariant amb forma <span class="math inline">\(Y = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p + \varepsilon\)</span> on <span class="math inline">\(Y\)</span> és la variable quantitativa que volem expressar en funció de la resta de variables quantitatives registrades. Al nostre cas considerem interessant posar la puntuació global en funció de les diferents puntiacions de cada prova.</p>
+<p>Per tant, els <span class="math inline">\(X_i\)</span> seran les variables de <em>speaking, listening, use of English, reading, writing</em>, doncs <span class="math inline">\(p = 5\)</span>. I després de calcular aquest model ens surt que <span class="math inline">\(\hat{\beta_0} = -0.633\)</span>, <span class="math inline">\(\hat{\beta_1} = 0.191\)</span>, <span class="math inline">\(\hat{\beta_2} = 0.197\)</span>, <span class="math inline">\(\hat{\beta_3} = 0.205\)</span>, <span class="math inline">\(\hat{\beta_4} = 0.206\)</span>, <span class="math inline">\(\hat{\beta_5} = 0.205\)</span>, <span class="math inline">\(\varepsilon = 0.126\)</span>.</p>
+<p>Un cop tenim açò passarem a calcular la funció <em>score</em>. Ací baix veurem els resultats que ens dóna aquesta al nostre cas.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                   [,1]
+Intercepto 4.243361e-11
+speaking   7.853572e-09
+listening  7.973654e-09
+use_eng    7.487984e-09
+reading    7.761543e-09
+writing    7.597947e-09</code></pre>
+</div>
+</div>
+<p>Com podem veure tots els valors són molt propers a zero, amb açò podrem deduïr que el model ha trobat un bon ajustament per aquests paràmetres.</p>
+<p>La próxima prova que realitzarem serà un contrast d’hipòtesis de dues mitjanes multivariants. En aquest cas avaluarem si el vector de mitjanes de la variable quantitativa d’interés <span class="math inline">\(Y\)</span> és el mateix per dos nivells diferents de la variable no quantitativa que hem modelat abans com multinomial. Aquesta ha estat el nivell educatiu i agafarem els nivells d’estudis obligatoris i universitaris per comparar.</p>
+<p>Després de realitzar el test de Hotelling ens ha sortit un p-valor de 0.9122, un valor prou més alt que 0.05, llavors no hi ha suficient evidència per afirmar que les puntuacions globals de l’examen siguen significativament diferents entre els nivells d’estudis obligatoris i universitaris. Aquesta conclusió té sentit per com hem creat les dades, on totes eren equiprobables.</p>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<p>De totes les proves realitzades i també com hem pogut veure a la majoria de gràfics, no hem pogut extraure informació molt rellevant pel problema ja que al haver creat totes les variables de forma aleatòria i equiprobables no existeixen diferències significatives entre aquestes.</p>
+</section>
+<section id="bibliografia" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografia">Bibliografia</h2>
+<p>Totes les funcions i codis venen donats pels apunts de les assignatures d’Anàlisi de dades i Estadística del GMAT.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
